@@ -40,10 +40,12 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(array){
+  const copiedArray=array.slice();//slice metodu kopyalamak için kullanıldı.
+  return copiedArray;
 }
-
+const copiedArray=kopyala(orijinalTatlar);
+console.log(copiedArray);
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -56,9 +58,17 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(arraycesit){
+  const arraycesitt=arraycesit.slice()
+if(arraycesitt.length===25){
+  return true;
 }
+else{
+  return false;
+}
+}
+const copiedArray2=dizi25Cesitmi(orijinalTatlar);
+console.log(copiedArray2);
 
 
 /* Görev 3:
@@ -74,9 +84,12 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(arrayyenıdeger,arrayekle){
+  const arrayyenıdegerr=arrayyenıdeger.slice();
+  arrayyenıdegerr.splice(0,0,arrayekle);
+  return arrayyenıdegerr;
 }
+console.log(cesitEkle(orijinalTatlar,"Kakule"));
 
 
 /* Cörev 4:
@@ -92,10 +105,13 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(arraysoncesitkaldır){
+  const arrayyenıdegerrr=arraysoncesitkaldır.slice();
+  arrayyenıdegerrr.pop();
+  return arrayyenıdegerrr;
 }
-
+sonCesitiKaldir(orijinalTatlar);
+console.log(orijinalTatlar);
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
@@ -108,9 +124,16 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(indeksCesit,x){
+  const indeksCesitt=indeksCesit.slice();
+  for (let i = 0; i< indeksCesitt.length; i++) {
+  if(i===x){
+    const element=indeksCesitt[i];
+    return element;
+  }
+      }
 }
+indekstekiCesitiGetir(orijinalTatlar, 2);
 
 
 /* Görev 6:
@@ -128,9 +151,17 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(arraycesitcikar,cikarılanlezzet){
+  const arraycesitcikarr=arraycesitcikar.slice();
+  const indexdeger=arraycesitcikarr.indexOf(cikarılanlezzet);//Burada bize gelen değerin indexini bulup ona göre splice metodu ile çıkarma işlemi yapıldı.
+
+  if(indexdeger!==-1){
+    arraycesitcikarr.splice(indexdeger,1);
+  return arraycesitcikarr;
+  }
+  
 }
+ismeGoreCesitCikar(orijinalTatlar,"Tarçın");
 
 
 /* Görev 7:
@@ -154,10 +185,18 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(arrayisimfiltre,arraynamecontrol){
+  const yenidizi=[];
+  const arrayisimfiltree=arrayisimfiltre.slice();//Arrayı kopyaladık.
+  for (let i = 0; i < arrayisimfiltree.length; i++) {//for döngüsü ile array uzunluğu döndük
+    if(arrayisimfiltree[i].includes(arraynamecontrol)){//includes metodu ile namekontrol yaptık.
+      yenidizi.push(arrayisimfiltree[i]);//oluşturduğumuz yeni diziye kopyaladığımız arraydeki çikolata değerlerini pushladık.
+    }
+    
+  }
+  return yenidizi;//yeni diziyi return ettik.
 }
-
+ismeGoreFiltrele(orijinalTatlar,"Çikolata");
 
 
 /* ALIŞTIRMA */
@@ -172,10 +211,18 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
 
-function ortalamaKelimeSayisi(/*kod buraya*/){
-  /*kod buraya*/
+function ortalamaKelimeSayisi(ArrayOrt){//Bu fonksiyon ek olarak yapılmıştır.
+  const ArrayOrtt=ArrayOrt.slice();
+  let toplamdeger=0;
+  for (let i = 0; i < ArrayOrtt.length; i++) {
+    const tutucu=ArrayOrtt[i];
+    const kelimetoplam=tutucu.length;
+    toplamdeger+=kelimetoplam;
+  }
+  const deger=toplamdeger/ArrayOrtt.length;
+  return deger
 }
-
+console.log(ortalamaKelimeSayisi(orijinalTatlar));
 
 /* ALIŞTIRMA 2:
 Firma mevcut tatların yanında artık mevsimlik lezzetler ve hatta bölgesel lezzetler de sunmaktadır. Toplam 25 lezzet aromasını
